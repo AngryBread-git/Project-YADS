@@ -26,3 +26,9 @@
 * In “/Assets/Examples/Scenes” there are 2 example scenes. Which showcase Dialogues, animations, events, and more. You can walk around with WASD. When a speech bubble appears above another character, you can press E to start a conversation. Press E again to continue to the next line. Some characters have more than one conversation available.
 * In “/Assets/Examples/Scripts” there are some basic scripts that interact with the events included in the project. Such as SoundFromEvent which plays a sound when an event is fired. It also contains a basic character controller.
 * These are examples and can of course be expanded on for the project they are used in.
+
+<img width="1280" alt="DSLabV2_12" src="https://github.com/user-attachments/assets/b9205a58-58f6-4742-8f1d-862821db6e53">
+
+
+
+  
