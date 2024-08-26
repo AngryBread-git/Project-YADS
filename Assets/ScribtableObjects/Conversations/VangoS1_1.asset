@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5f8e0d09ec97e4cb3b5aeda38e5a91, type: 3}
+  m_Name: VangoS1_1
+  m_EditorClassIdentifier: 
+  _dialogueParts:
+  - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
+    _typingDelay: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: The dialogue can of course be paused {PauseTyping,1200}for dramatic effect.
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
+    _typingDelay: 1
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: They can be printed at different speeds, here's a fast print.{SetTypingDelay,slow}
+      And here's slow print.
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
+    _typingDelay: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: If the player presses E while the line is printing, the line prints instantly.
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
+    _typingDelay: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: Here's a long line in case you want to try it. Or not, I can't make you.
+      But it would help showcase the system, so I hope you do. You would not believe
+      how much text can fit in this textbox.
+    _afterLineEvents: 

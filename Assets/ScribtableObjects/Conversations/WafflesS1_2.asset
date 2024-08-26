@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5f8e0d09ec97e4cb3b5aeda38e5a91, type: 3}
+  m_Name: WafflesS1_2
+  m_EditorClassIdentifier: 
+  _dialogueParts:
+  - _characterInfo: {fileID: 11400000, guid: c57fe27ff03627742a6dbb5a6d9cf512, type: 2}
+    _typingDelay: 0
+    _animationStyle: 4
+    _animationIntensity: 0
+    _animateSpecifiedWords: 1
+    _specifiedWordIndexes: 0200000004000000050000000700000008000000
+    _beforeLineEvents: 
+    _line: In these lines only specific words are animated. Haburgerfonstiv.
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: c57fe27ff03627742a6dbb5a6d9cf512, type: 2}
+    _typingDelay: 0
+    _animationStyle: 3
+    _animationIntensity: 1
+    _animateSpecifiedWords: 1
+    _specifiedWordIndexes: 01000000040000000500000006000000070000000a0000000b0000000c000000
+    _beforeLineEvents: 
+    _line: The specification is done in the dialogue part, which makes it easy to
+      use. Haburgerfonstiv.
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: c57fe27ff03627742a6dbb5a6d9cf512, type: 2}
+    _typingDelay: 0
+    _animationStyle: 1
+    _animationIntensity: 0
+    _animateSpecifiedWords: 1
+    _specifiedWordIndexes: 01000000030000000500000006000000
+    _beforeLineEvents: 
+    _line: The lines are index 0. Here words 1, 3, 5, and 6 are animated.
+    _afterLineEvents: 

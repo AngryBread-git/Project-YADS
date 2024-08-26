@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5f8e0d09ec97e4cb3b5aeda38e5a91, type: 3}
+  m_Name: WafflesS2_1
+  m_EditorClassIdentifier: 
+  _dialogueParts:
+  - _characterInfo: {fileID: 11400000, guid: c57fe27ff03627742a6dbb5a6d9cf512, type: 2}
+    _typingDelay: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: The text-system supports <color="red">different colors</color>, <i>italics</i>
+      and <smallcaps>Other Rich Text Tags.</smallcaps>
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: c57fe27ff03627742a6dbb5a6d9cf512, type: 2}
+    _typingDelay: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: It can call events before, in{PlaySound,3}, and after the textline{PlaySound,1}.
+      This makes it highly flexible.
+    _afterLineEvents: '{ChangeMusic} {PlaySound,2}'
+  - _characterInfo: {fileID: 11400000, guid: c57fe27ff03627742a6dbb5a6d9cf512, type: 2}
+    _typingDelay: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: The events are formatted using curlybraces. See the "DialogueEvents" script
+      for more details.
+    _afterLineEvents: 
