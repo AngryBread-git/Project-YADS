@@ -38,14 +38,12 @@ public class DialogueTrigger : MonoBehaviour
 
         _dialogueSetUpper.SaveDialogueParts(_dialogueSO[_currentDialogueNr]);
 
-        //_dialogueSystem.StartDialogue(this);
-        //call a StartedDialogueEventInfo
         StartedDialogueEventInfo ei = new StartedDialogueEventInfo();
         ei._dialogueTrigger = this;
         EventCoordinator<StartedDialogueEventInfo>.FireEvent(ei);
     }
 
-    //TODO: listen for FinishedDialogueEventInfo and if it's the same as this object, then increase.
+
     private void OnDialogueFinished(FinishedDialogueEventInfo ei) 
     {
         if (this.Equals(ei._dialogueTrigger)) 
