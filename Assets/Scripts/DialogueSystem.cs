@@ -18,14 +18,14 @@ public class DialogueSystem : MonoBehaviour
 {
     //Other Classes
     [SerializeField] private TextMeshProUGUI _dialogueText;
-    [SerializeField] private GameObject _dialogueTextGameObject;
-    [SerializeField] private GameObject _textBox;
-    [SerializeField] private GameObject _interactIndicator;
+
     [SerializeField] private TextMeshProUGUI _nameText;
+
     private DialogueSetUpper _dialogueSetUpper;
     private DialogueSound _dialogueSound;
     private Player _player;
     private DialogueTrigger _currentDialogueTrigger;
+    private DialogueUISystem _dialogueUISystem;
 
     //Settings
     [SerializeField] private TypingDelaySetting _typingDelaySetting;
@@ -54,19 +54,17 @@ public class DialogueSystem : MonoBehaviour
         _dialogueSetUpper = FindObjectOfType<DialogueSetUpper>();
         _player = FindObjectOfType<Player>();
         _dialogueSound = FindObjectOfType<DialogueSound>();
+        _dialogueUISystem = FindObjectOfType<DialogueUISystem>();
+
         ApplyTypingDelaySetting();
 
 
         _dialogueText.text = "";
-
-        _textBox.SetActive(false);        
-        _dialogueTextGameObject.SetActive(false);
-        _interactIndicator.SetActive(false);
-
     }
 
     private void OnEnable()
     {
+        EventCoordinator<StartedDialogueEventInfo>.RegisterListener(StartDialogue);
         EventCoordinator<SetTypingDelayEventInfo>.RegisterListener(SetTypingDelaySetting);
 
         EventCoordinator<PauseTypingEventInfo>.RegisterListener(PauseTyping);
@@ -77,6 +75,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void OnDisable()
     {
+        EventCoordinator<StartedDialogueEventInfo>.RegisterListener(StartDialogue);
         EventCoordinator<SetTypingDelayEventInfo>.UnregisterListener(SetTypingDelaySetting);
 
         EventCoordinator<PauseTypingEventInfo>.UnregisterListener(PauseTyping);
@@ -94,7 +93,7 @@ public class DialogueSystem : MonoBehaviour
         
     }
 
-    public void StartDialogue(DialogueTrigger givenDialogueTrigger) 
+    private void StartDialogue(StartedDialogueEventInfo ei) 
     {
         //If there's a dialogue active, then dont start a new one.
         if (_isDialogueActive) 
@@ -104,25 +103,16 @@ public class DialogueSystem : MonoBehaviour
 
         //set values
         _isDialogueActive = true;
+
         //currentLineNr starts at -1, then in LoadNextLine it is increased by 1, meaning that it starts at line 0.
         _currentLineNr = -1;
         _lineAmount = _dialogueSetUpper.GetDialogueLength();
-        _currentDialogueTrigger = givenDialogueTrigger;
-
-
-        //Lock player movement
-        _player.SetAllowMovement(false);
-
-        //activate assets.
-        _textBox.SetActive(true);
-        _dialogueTextGameObject.SetActive(true);
-        _interactIndicator.SetActive(true);
+        _currentDialogueTrigger = ei._dialogueTrigger;
 
         _dialogueText.text = "";
         _dialogueText.maxVisibleCharacters = 0;
 
         LoadNextLine();
-
     }
 
     private void EndDialogue() 
@@ -131,21 +121,13 @@ public class DialogueSystem : MonoBehaviour
         _isDialogueActive = false;
         _autoPrintNextLine = false;
 
-        //Unlock player movement
-        _player.SetAllowMovement(true);
-        //Set the current trigger to null to prevent the player from immediatly starting the next dialogue.
-        _player.SetCurrentDialogueTrigger(null);
+        FinishedDialogueEventInfo ei = new FinishedDialogueEventInfo();
+        ei._dialogueTrigger = _currentDialogueTrigger;
+        EventCoordinator<FinishedDialogueEventInfo>.FireEvent(ei);
 
-        //Increase the trigger's dialoguecount, so the next dialogue is available.
-        _currentDialogueTrigger.IncreaseDialogueNr();
-
-        //deactivate assets.
-        _textBox.SetActive(false);
-        _dialogueTextGameObject.SetActive(false);
-        _interactIndicator.SetActive(false);
+        //Set the text to nothing.
         _dialogueText.text = "";
         _dialogueText.maxVisibleCharacters = 0;
-
     }
 
 
@@ -314,23 +296,10 @@ public class DialogueSystem : MonoBehaviour
 
     private void SetIsTyping(bool givenValue) 
     {
-        if (givenValue)
-        {
-            _isTyping = true;
-            if (_interactIndicator != null) 
-            {
-                _interactIndicator.SetActive(false);
-            }           
 
-        }
-        else 
-        {
-            _isTyping = false;
-            if (_interactIndicator != null)
-            {
-                _interactIndicator.SetActive(true);
-            }
-        }
+        _isTyping = givenValue;
+
+        _dialogueUISystem.SetNextLineIndicator(!givenValue);
     }
 
     private void ApplyTypingDelaySetting()

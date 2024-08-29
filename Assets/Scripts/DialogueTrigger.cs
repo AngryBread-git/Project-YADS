@@ -19,15 +19,40 @@ public class DialogueTrigger : MonoBehaviour
         _interactIndicator = GetComponentInChildren<SpriteRenderer>();
     }
 
+    private void OnEnable()
+    {
+        EventCoordinator<FinishedDialogueEventInfo>.RegisterListener(OnDialogueFinished);
+
+    }
+
+    private void OnDisable()
+    {
+
+        EventCoordinator<FinishedDialogueEventInfo>.UnregisterListener(OnDialogueFinished);
+    }
+
+
     public void InitializeDialogue() 
     {
         ShowInteractIndicator(false);
 
         _dialogueSetUpper.SaveDialogueParts(_dialogueSO[_currentDialogueNr]);
-        _dialogueSystem.StartDialogue(this);
+
+        StartedDialogueEventInfo ei = new StartedDialogueEventInfo();
+        ei._dialogueTrigger = this;
+        EventCoordinator<StartedDialogueEventInfo>.FireEvent(ei);
     }
 
-    public void IncreaseDialogueNr() 
+
+    private void OnDialogueFinished(FinishedDialogueEventInfo ei) 
+    {
+        if (this.Equals(ei._dialogueTrigger)) 
+        {
+            IncreaseDialogueNr();
+        }
+    }
+
+    private void IncreaseDialogueNr() 
     {
         if (_currentDialogueNr + 1 < _dialogueSO.Length)
         {

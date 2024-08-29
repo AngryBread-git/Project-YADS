@@ -10,6 +10,21 @@ public class Player : MonoBehaviour
     private bool _allowMovement = true;
     private DialogueTrigger _currentDialogueTrigger;
 
+    private void OnEnable()
+    {
+        EventCoordinator<StartedDialogueEventInfo>.RegisterListener(DisallowMovement);
+
+        EventCoordinator<FinishedDialogueEventInfo>.RegisterListener(AllowMovement);
+
+    }
+
+    private void OnDisable()
+    {
+        EventCoordinator<StartedDialogueEventInfo>.RegisterListener(DisallowMovement);
+
+        EventCoordinator<FinishedDialogueEventInfo>.UnregisterListener(AllowMovement);
+    }
+
     void Update()
     {
         if (_allowMovement == false) 
@@ -28,9 +43,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetAllowMovement(bool givenValue) 
+    private void DisallowMovement(StartedDialogueEventInfo ei) 
     {
-        _allowMovement = givenValue;
+        _allowMovement = false;
+        SetCurrentDialogueTrigger(null);
+    }
+
+    private void AllowMovement(FinishedDialogueEventInfo ei)
+    {
+        _allowMovement = true;
     }
 
     public void SetCurrentDialogueTrigger(DialogueTrigger givenDialogueTrigger) 
@@ -45,7 +66,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("DialogueTrigger"))
         {
-            _currentDialogueTrigger = other.GetComponent<DialogueTrigger>();
+            SetCurrentDialogueTrigger(other.GetComponent<DialogueTrigger>());
             other.GetComponent<DialogueTrigger>().ShowInteractIndicator(true);
         }
     }
@@ -56,7 +77,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("DialogueTrigger"))
         {
-            _currentDialogueTrigger = null;
+            SetCurrentDialogueTrigger(null);
             other.GetComponent<DialogueTrigger>().ShowInteractIndicator(false);
         }
     }

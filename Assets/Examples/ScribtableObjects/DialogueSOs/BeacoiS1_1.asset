@@ -39,6 +39,14 @@ MonoBehaviour:
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
-    _line: You can also fire event during a line. At the end of this one there's
-      another song switch.
+    _line: You can also fire event during a line. {PlaySound,3}For example, PlaySound.
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: 3510437a7dba9344488a31a11e88372b, type: 2}
+    _typingDelay: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: At the end of this line there's another song switch.
     _afterLineEvents: '{ChangeMusic}'

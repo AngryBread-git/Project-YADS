@@ -23,7 +23,7 @@ public class SoundFromEvent : MonoBehaviour
 
     }
 
-
+    //The AudioClips are stored in a simple array. There is definetly potential for a more advanced sound system.
     private void PlayEventSound(PlaySoundEventInfo ei) 
     {
         //Debug.Log(string.Format("PlayEventSound, _soundEffectNumber is: {0}", ei._soundEffectNumber));
