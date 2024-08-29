@@ -3,7 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+public class StartedDialogueEventInfo : EventInfo
+{
+    //The dialogue trigger which started the dialogue.
+    public DialogueTrigger _dialogueTrigger;
+}
 
+public class FinishedDialogueEventInfo : EventInfo
+{
+    public DialogueTrigger _dialogueTrigger;
+}
 
 public class SetTypingDelayEventInfo : EventInfo
 {

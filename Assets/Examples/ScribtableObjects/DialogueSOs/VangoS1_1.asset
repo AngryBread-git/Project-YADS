@@ -20,17 +20,7 @@ MonoBehaviour:
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
-    _line: The dialogue can of course be paused {PauseTyping,1200}for dramatic effect.
-    _afterLineEvents: 
-  - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
-    _typingDelay: 1
-    _animationStyle: 0
-    _animationIntensity: 0
-    _animateSpecifiedWords: 0
-    _specifiedWordIndexes: 
-    _beforeLineEvents: 
-    _line: They can be printed at different speeds, here's a fast print.{SetTypingDelay,slow}
-      And here's slow print.
+    _line: 'Hello and welcome to YADS, aka: Yet Another Dialogue System.'
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
     _typingDelay: 0
@@ -39,7 +29,7 @@ MonoBehaviour:
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
-    _line: If the player presses E while the line is printing, the line prints instantly.
+    _line: You can talk to the different characters with "E". But you knew that already.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
     _typingDelay: 0
@@ -48,7 +38,16 @@ MonoBehaviour:
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
-    _line: Here's a long line in case you want to try it. Or not, I can't make you.
-      But it would help showcase the system, so I hope you do. You would not believe
-      how much text can fit in this textbox.
+    _line: The different conversations in this scene and the other scene will show
+      of some of the things that are possible with YADS.
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
+    _typingDelay: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: After a conversation is done, simply approach someone again and they'll
+      go to their next dialogue.
     _afterLineEvents: 
