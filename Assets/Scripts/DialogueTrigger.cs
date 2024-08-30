@@ -7,14 +7,12 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private DialogueSO[] _dialogueSO;
     [SerializeField] private int _currentDialogueNr = 0;
     private DialogueSetUpper _dialogueSetUpper;
-    private DialogueSystem _dialogueSystem;
     private SpriteRenderer _interactIndicator;
 
     // Start is called before the first frame update
     private void Start()
     {
         _dialogueSetUpper = FindObjectOfType<DialogueSetUpper>();
-        _dialogueSystem = FindObjectOfType<DialogueSystem>();
 
         _interactIndicator = GetComponentInChildren<SpriteRenderer>();
     }

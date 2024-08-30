@@ -286,6 +286,7 @@ public class TMP_Animator : MonoBehaviour
 
     private void ApplyAnimationIntensity() 
     {
+
         //Apply the coded values to each variable based on intensity.
         if (_animationIntensity == TextAnimationIntensity.high) 
         {
