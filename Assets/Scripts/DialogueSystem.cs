@@ -88,7 +88,7 @@ public class DialogueSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && _isDialogueActive)
         {
-            LoadNextLine();
+            LoadNextDialoguePart();
         }
         
     }
@@ -112,7 +112,7 @@ public class DialogueSystem : MonoBehaviour
         _dialogueText.text = "";
         _dialogueText.maxVisibleCharacters = 0;
 
-        LoadNextLine();
+        LoadNextDialoguePart();
     }
 
     private void EndDialogue() 
@@ -131,9 +131,9 @@ public class DialogueSystem : MonoBehaviour
     }
 
 
-    private void LoadNextLine() 
+    private void LoadNextDialoguePart() 
     {
-        //If the player presses the input while the text is printing then the line will print instantly
+        //If the player presses the input while the text is printing then the line will print very very fast. (almost instantly.)
         //Note: Any pauses in the line will be the normal duration.
         if (_isTyping) 
         {
@@ -143,13 +143,13 @@ public class DialogueSystem : MonoBehaviour
             return;
         }
         _currentLineNr += 1;
-        //Debug.Log(string.Format("LoadNextLine, _currentLineNr is: {0}", _currentLineNr));
+        //Debug.Log(string.Format("LoadNextDialoguePart, _currentLineNr is: {0}", _currentLineNr));
 
         if (_currentLineNr < _lineAmount)
         {
             _dialogueText.text = "";
             _dialogueText.maxVisibleCharacters = 0;
-            //Debug.Log(string.Format("LoadNextLine, maxvisiblecharacters is: {0}", _textMeshPro.maxVisibleCharacters));
+            //Debug.Log(string.Format("LoadNextDialoguePart, maxvisiblecharacters is: {0}", _textMeshPro.maxVisibleCharacters));
 
             //Play sound for the new line.
             PlaySoundEventInfo ei = new PlaySoundEventInfo();
@@ -352,6 +352,12 @@ public class DialogueSystem : MonoBehaviour
 
     private void SetTypingDelaySetting(SetTypingDelayEventInfo ei) 
     {
+        if (_typingDelaySetting == TypingDelaySetting.instant)
+        {
+            //Debug.Log(string.Format("SetTypingDelaySetting, currently at Instant. Speed will not change from event."));
+            return;
+        }
+
         _typingDelaySetting = ei._typingDelaySetting;
         
         ApplyTypingDelaySetting();
@@ -360,16 +366,24 @@ public class DialogueSystem : MonoBehaviour
 
     private void PauseTyping(PauseTypingEventInfo ei) 
     {
+
+        //Uncomment the statement below to make it so that instant TypingSpeed will ignore pauses in dialogue.
+        /*if (_typingDelaySetting == TypingDelaySetting.instant)
+        {
+            Debug.Log(string.Format("PauseTyping, currently at Instant. Pause will not be applied from event."));
+            return;
+        }
+        */
         
+
         if (ei._pauseDuration > 0)
         {
             //Debug.Log(string.Format("PauseTyping, ei_pauseDuration is: {0}", ei._pauseDuration));
             _pauseDuration = ei._pauseDuration;
-
         }
         else 
         {
-            Debug.LogWarning(string.Format("PauseTyping, ei_pauseDuration was below 0: {0}", ei._pauseDuration));
+            //Debug.LogWarning(string.Format("PauseTyping, ei_pauseDuration was below 0: {0}. Duration will be set to 1.0", ei._pauseDuration));
             _pauseDuration = 1.0f;
         }
 
@@ -451,7 +465,7 @@ public class DialogueSystem : MonoBehaviour
 
         if (_autoPrintNextLine) 
         {            
-            LoadNextLine();
+            LoadNextDialoguePart();
         }
     }
 
