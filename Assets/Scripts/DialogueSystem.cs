@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum TypingDelaySetting
+public enum TypingSpeedSetting
 {
     //Note: The enums are defined in this order to make "normal" the default value in DialoguePart
     normal,
@@ -27,8 +27,9 @@ public class DialogueSystem : MonoBehaviour
     private DialogueTrigger _currentDialogueTrigger;
     private DialogueUISystem _dialogueUISystem;
 
-    //Settings
-    [SerializeField] private TypingDelaySetting _typingDelaySetting;
+    //Each TypingDelay corresponds to a TypingSpeed. 
+    //A low value on a delay gives a high typing speed. A high value on a delay gives a low typing speed.
+    [SerializeField] private TypingSpeedSetting _typingSpeedSetting;
     private float _instantTypingDelay = 0.001f;
     [SerializeField] [Range(0.01f, 0.3f)] private float _fastTypingDelay;
     [SerializeField] [Range(0.01f, 0.3f)] private float _normalTypingDelay;
@@ -56,7 +57,7 @@ public class DialogueSystem : MonoBehaviour
         _dialogueSound = FindObjectOfType<DialogueSound>();
         _dialogueUISystem = FindObjectOfType<DialogueUISystem>();
 
-        ApplyTypingDelaySetting();
+        ApplyTypingSpeedSetting();
 
 
         _dialogueText.text = "";
@@ -65,7 +66,7 @@ public class DialogueSystem : MonoBehaviour
     private void OnEnable()
     {
         EventCoordinator<StartedDialogueEventInfo>.RegisterListener(StartDialogue);
-        EventCoordinator<SetTypingDelayEventInfo>.RegisterListener(SetTypingDelaySetting);
+        EventCoordinator<SetTypingSpeedEventInfo>.RegisterListener(SetTypingSpeedSetting);
 
         EventCoordinator<PauseTypingEventInfo>.RegisterListener(PauseTyping);
         EventCoordinator<SetLineNumberEventInfo>.RegisterListener(SetCurrentLineNumber);
@@ -76,7 +77,7 @@ public class DialogueSystem : MonoBehaviour
     private void OnDisable()
     {
         EventCoordinator<StartedDialogueEventInfo>.RegisterListener(StartDialogue);
-        EventCoordinator<SetTypingDelayEventInfo>.UnregisterListener(SetTypingDelaySetting);
+        EventCoordinator<SetTypingSpeedEventInfo>.UnregisterListener(SetTypingSpeedSetting);
 
         EventCoordinator<PauseTypingEventInfo>.UnregisterListener(PauseTyping);
         EventCoordinator<SetLineNumberEventInfo>.UnregisterListener(SetCurrentLineNumber);
@@ -133,12 +134,11 @@ public class DialogueSystem : MonoBehaviour
 
     private void LoadNextDialoguePart() 
     {
-        //If the player presses the input while the text is printing then the line will print very very fast. (almost instantly.)
-        //Note: Any pauses in the line will be the normal duration.
+        //If the player presses the input while the text is printing then the line will print very very fast.
         if (_isTyping) 
         {
-            _typingDelaySetting = TypingDelaySetting.instant;
-            ApplyTypingDelaySetting();
+            _typingSpeedSetting = TypingSpeedSetting.instant;
+            ApplyTypingSpeedSetting();
 
             return;
         }
@@ -179,7 +179,7 @@ public class DialogueSystem : MonoBehaviour
 
         LoadVoiceClip();
 
-        LoadTypingDelay();
+        LoadTypingSpeed();
 
         LoadAnimationStyle();
 
@@ -201,10 +201,10 @@ public class DialogueSystem : MonoBehaviour
     }
 
 
-    private void LoadTypingDelay() 
+    private void LoadTypingSpeed() 
     {
-        _typingDelaySetting = _dialogueSetUpper.GetTypingDelay();
-        ApplyTypingDelaySetting();
+        _typingSpeedSetting = _dialogueSetUpper.GetTypingSpeed();
+        ApplyTypingSpeedSetting();
     }
 
     private void LoadAnimationStyle() 
@@ -302,20 +302,20 @@ public class DialogueSystem : MonoBehaviour
         _dialogueUISystem.SetNextLineIndicator(!givenValue);
     }
 
-    private void ApplyTypingDelaySetting()
+    private void ApplyTypingSpeedSetting()
     {
-        switch (_typingDelaySetting) 
+        switch (_typingSpeedSetting) 
         {
-            case TypingDelaySetting.instant:
+            case TypingSpeedSetting.instant:
                 _currentTypingDelay = _instantTypingDelay;
                 break;
-            case TypingDelaySetting.fast:
+            case TypingSpeedSetting.fast:
                 _currentTypingDelay = _fastTypingDelay;
                 break;
-            case TypingDelaySetting.normal:
+            case TypingSpeedSetting.normal:
                 _currentTypingDelay = _normalTypingDelay;
                 break;
-            case TypingDelaySetting.slow:
+            case TypingSpeedSetting.slow:
                 _currentTypingDelay = _slowTypingDelay;
                 break;
             default:
@@ -350,17 +350,17 @@ public class DialogueSystem : MonoBehaviour
         _autoPrintNextLine = ei._isAutoNextLine;
     }
 
-    private void SetTypingDelaySetting(SetTypingDelayEventInfo ei) 
+    private void SetTypingSpeedSetting(SetTypingSpeedEventInfo ei) 
     {
-        if (_typingDelaySetting == TypingDelaySetting.instant)
+        if (_typingSpeedSetting == TypingSpeedSetting.instant)
         {
-            //Debug.Log(string.Format("SetTypingDelaySetting, currently at Instant. Speed will not change from event."));
+            //Debug.Log(string.Format("SetTypingSpeedSetting, currently at Instant. Speed will not change from event."));
             return;
         }
 
-        _typingDelaySetting = ei._typingDelaySetting;
+        _typingSpeedSetting = ei._typingSpeedSetting;
         
-        ApplyTypingDelaySetting();
+        ApplyTypingSpeedSetting();
     }
     
 
@@ -475,8 +475,8 @@ public class DialogueSystem : MonoBehaviour
     {
         switch (tempEvent.Info) 
         {
-            case SetTypingDelayEventInfo ei:
-                EventCoordinator<SetTypingDelayEventInfo>.FireEvent(ei);
+            case SetTypingSpeedEventInfo ei:
+                EventCoordinator<SetTypingSpeedEventInfo>.FireEvent(ei);
                 break;
 
             case PauseTypingEventInfo ei:               

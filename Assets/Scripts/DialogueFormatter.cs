@@ -80,13 +80,14 @@ public class DialogueFormatter : MonoBehaviour
 
             if (tempChar == '{')
             {
-                //Anything not inside an {} gets removed.
+                //An event starts with an open curly brace.
+                //The '{' is not part of the EventInfo and as such is not saved.
                 tempContent = "";
             }
 
             else if (tempChar == '}')
             {
-                //Only events are saved.
+                //An event ends with a closed curly brase.
                 //The '}' is not part of the EventInfo and as such is not saved.
                 //Debug.Log(string.Format("Finished formatting eventcall, eventcall is: {0}", tempContent));
 
@@ -115,10 +116,10 @@ public class DialogueFormatter : MonoBehaviour
 
         switch (splitString[0])
         {
-            case "SetTypingDelay":
-                SetTypingDelayEventInfo stdResult = new SetTypingDelayEventInfo();
-                stdResult._typingDelaySetting = (TypingDelaySetting)Enum.Parse(typeof(TypingDelaySetting), splitString[1]);
-                return stdResult;
+            case "SetTypingSpeed":
+                SetTypingSpeedEventInfo stsResult = new SetTypingSpeedEventInfo();
+                stsResult._typingSpeedSetting = (TypingSpeedSetting)Enum.Parse(typeof(TypingSpeedSetting), splitString[1]);
+                return stsResult;
 
             case "PauseTyping":
                 PauseTypingEventInfo ptResult = new PauseTypingEventInfo();
