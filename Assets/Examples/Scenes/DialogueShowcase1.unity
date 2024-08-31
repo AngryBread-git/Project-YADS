@@ -960,7 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1915182405}
   _nameText: {fileID: 1463244159}
-  _typingDelaySetting: 0
+  _typingSpeedSetting: 0
   _fastTypingDelay: 0.02
   _normalTypingDelay: 0.035
   _slowTypingDelay: 0.06
@@ -2310,7 +2310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871474042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.55906117, y: -8.883844, z: 24.221006}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

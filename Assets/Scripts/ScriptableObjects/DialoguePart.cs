@@ -7,7 +7,7 @@ public class DialoguePart
 {
     [SerializeField] private CharacterInfo _characterInfo;
 
-    [SerializeField] private TypingDelaySetting _typingDelay;
+    [SerializeField] private TypingSpeedSetting _typingSpeed;
 
     [SerializeField] private TextAnimationStyle _animationStyle;
 
@@ -35,9 +35,9 @@ public class DialoguePart
     }
 
 
-    public TypingDelaySetting GetTypingDelay()
+    public TypingSpeedSetting GetTypingSpeed()
     {
-        return _typingDelay;
+        return _typingSpeed;
     }
 
     public TextAnimationStyle GetAnimationStyle() 

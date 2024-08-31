@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueParts:
   - _characterInfo: {fileID: 11400000, guid: 3510437a7dba9344488a31a11e88372b, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
     _line: Dialogues can of course be between different characters.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: 69c73e99ee9cc4c4ba321b9d8bc284ce, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 1
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
       applied in the DialogueSystem.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: 3510437a7dba9344488a31a11e88372b, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0

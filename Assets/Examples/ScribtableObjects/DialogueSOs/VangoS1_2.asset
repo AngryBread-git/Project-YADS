@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueParts:
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
@@ -23,17 +23,17 @@ MonoBehaviour:
     _line: The dialogue can of course be paused {PauseTyping,1200}for dramatic effect.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
-    _typingDelay: 1
+    _typingSpeed: 1
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
     _line: They can be printed at different speeds, here's a fast print. Wow, so
-      fast. {SetTypingDelay,slow} And here's slow print. Wow, so slow.
+      fast. {SetTypingSpeed,slow} And here's slow print. Wow, so slow.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     _line: If the player presses E while the line is printing, the line prints instantly.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0

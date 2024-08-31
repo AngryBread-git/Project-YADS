@@ -72,9 +72,9 @@ public class DialogueSetUpper : MonoBehaviour
     }
 
 
-    public TypingDelaySetting GetTypingDelay()
+    public TypingSpeedSetting GetTypingSpeed()
     {
-        return _dialogueParts[_currentLineNr].GetTypingDelay();
+        return _dialogueParts[_currentLineNr].GetTypingSpeed();
     }
 
 

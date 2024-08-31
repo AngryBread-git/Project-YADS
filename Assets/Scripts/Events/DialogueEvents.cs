@@ -14,13 +14,13 @@ public class FinishedDialogueEventInfo : EventInfo
     public DialogueTrigger _dialogueTrigger;
 }
 
-public class SetTypingDelayEventInfo : EventInfo
+public class SetTypingSpeedEventInfo : EventInfo
 {
-    //written as "{SetTypingDelay,X}" in a Line in a DialoguePart. With X being a valid TypingDelaySetting.
-    //Note: See the DialogueSystem for the TypingDelaySettings
+    //written as "{SetTypingSpeed,X}" in a Line in a DialoguePart. With X being a valid TypingSpeedSetting.
+    //Note: See the DialogueSystem for the TypingSpeedSettings
 
     //Note: This is available as a setting in DialoguePart.
-    public TypingDelaySetting _typingDelaySetting;
+    public TypingSpeedSetting _typingSpeedSetting;
 }
 
 public class PauseTypingEventInfo : EventInfo
