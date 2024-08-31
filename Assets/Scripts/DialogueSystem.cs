@@ -368,7 +368,7 @@ public class DialogueSystem : MonoBehaviour
     {
 
         //Uncomment the statement below to make it so that instant TypingSpeed will ignore pauses in dialogue.
-        /*if (_typingDelaySetting == TypingDelaySetting.instant)
+        /*if (_typingSpeedSetting == TypingSpeedSetting.instant)
         {
             Debug.Log(string.Format("PauseTyping, currently at Instant. Pause will not be applied from event."));
             return;
