@@ -29,6 +29,13 @@
 
 <img width="1280" alt="DSLabV2_12" src="https://github.com/user-attachments/assets/b9205a58-58f6-4742-8f1d-862821db6e53">
 
+## Credits for music and sounds.
+Arcane Incantation by Keisuke Ito
+Field of Hopes and Dreams by Toby Fox
+Pleasant Porridge by Kevin MacLeod
+Three Bar Logos by Jami Lynne.
 
+Lime_addcounter by Rata & Jimbles
+Other sounds by Atsushi Mori
 
   
