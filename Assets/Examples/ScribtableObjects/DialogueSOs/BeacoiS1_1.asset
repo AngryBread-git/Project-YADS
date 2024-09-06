@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueParts:
   - _characterInfo: {fileID: 11400000, guid: 3510437a7dba9344488a31a11e88372b, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
     _line: Here's a line of dialogue.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: 3510437a7dba9344488a31a11e88372b, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
       starts printing. In this case, ChangeMusic.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: 3510437a7dba9344488a31a11e88372b, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     _line: You can also fire event during a line. {PlaySound,3}For example, PlaySound.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: 3510437a7dba9344488a31a11e88372b, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 2
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0

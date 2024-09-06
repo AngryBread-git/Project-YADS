@@ -13,7 +13,7 @@ public enum TypingSpeedSetting
     instant,
 }
 
-
+[RequireComponent(typeof(DialogueSetUpper))]
 public class DialogueSystem : MonoBehaviour
 {
     //Other Classes
@@ -23,7 +23,6 @@ public class DialogueSystem : MonoBehaviour
 
     private DialogueSetUpper _dialogueSetUpper;
     private DialogueSound _dialogueSound;
-    private Player _player;
     private DialogueTrigger _currentDialogueTrigger;
     private DialogueUISystem _dialogueUISystem;
 
@@ -31,9 +30,9 @@ public class DialogueSystem : MonoBehaviour
     //A low value on a delay gives a high typing speed. A high value on a delay gives a low typing speed.
     [SerializeField] private TypingSpeedSetting _typingSpeedSetting;
     private float _instantTypingDelay = 0.001f;
-    [SerializeField] [Range(0.01f, 0.3f)] private float _fastTypingDelay;
-    [SerializeField] [Range(0.01f, 0.3f)] private float _normalTypingDelay;
-    [SerializeField] [Range(0.01f, 0.3f)] private float _slowTypingDelay;
+    [SerializeField] [Range(0.01f, 0.3f)] private float _fastTypingDelay = 0.02f;
+    [SerializeField] [Range(0.01f, 0.3f)] private float _normalTypingDelay = 0.035f;
+    [SerializeField] [Range(0.01f, 0.3f)] private float _slowTypingDelay = 0.05f;
 
 
 
@@ -52,10 +51,20 @@ public class DialogueSystem : MonoBehaviour
 
     void Start()
     {
-        _dialogueSetUpper = FindObjectOfType<DialogueSetUpper>();
-        _player = FindObjectOfType<Player>();
+        _dialogueSetUpper = GetComponent<DialogueSetUpper>();
+
         _dialogueSound = FindObjectOfType<DialogueSound>();
+        if (_dialogueSound is null) 
+        {
+            Debug.LogWarning(string.Format("DialogueSystem, did not find DialogueSound in scene."));
+        }
+
         _dialogueUISystem = FindObjectOfType<DialogueUISystem>();
+
+        if (_dialogueUISystem is null)
+        {
+            Debug.LogWarning(string.Format("DialogueSystem, did not find DialogueUISystem in scene."));
+        }
 
         ApplyTypingSpeedSetting();
 
