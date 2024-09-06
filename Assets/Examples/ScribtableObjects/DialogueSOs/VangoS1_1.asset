@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueParts:
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
-    _typingDelay: 0
-    _animationStyle: 0
+    _typingSpeed: 0
+    _animationStyle: 4
     _animationIntensity: 0
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
-    _line: 'Hello and welcome to YADS, aka: Yet Another Dialogue System.'
+    _line: "Hello and welcome to <b>YADS</b>, \naka: <i>Yet Another Dialogue System.</i>"
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
     _line: You can talk to the different characters with "E". But you knew that already.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
       of some of the things that are possible with YADS.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
-    _typingDelay: 0
+    _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0

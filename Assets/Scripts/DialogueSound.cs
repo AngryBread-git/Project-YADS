@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class DialogueSound : MonoBehaviour
 {
-    [SerializeField] private AudioSource _audioSource;
+    private AudioSource _audioSource;
     private bool _allowSound = true;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     public void ChangeVoiceClip(AudioClip audioClip) 
     {

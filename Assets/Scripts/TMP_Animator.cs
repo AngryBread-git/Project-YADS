@@ -81,10 +81,10 @@ public class TMP_Animator : MonoBehaviour
             //Debug.Log(string.Format("TMP animV2, currentWordIndex is: {0}", currentWordIndex));
                        
             TMP_CharacterInfo charInfo = _textInfo.characterInfo[i];
-            
+
             //Don't work on invisible characters. Increase word index by 1 then return to start of for-loop
-            //NOTE: This means that characters that are not present in the font are skipped. 
-            //NOTE: This leads to some words being animated twice, as the animation that would go on the word with the different font is added to another word.
+            //NOTE: This means that characters that are not present in the font are skipped. Which leads to incorrect animations for the characters that are present.
+
             if (!charInfo.isVisible)
             {
                 //if there is a space then it's the end of a word, so increase the word index.

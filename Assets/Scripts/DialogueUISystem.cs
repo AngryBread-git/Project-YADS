@@ -13,7 +13,8 @@ public class DialogueUISystem : MonoBehaviour
     {
         _textBox.SetActive(false);
         _dialogueTextGameObject.SetActive(false);
-        _nextLineIndicator.SetActive(false);
+
+        SetNextLineIndicator(false);
     }
 
     private void OnEnable()
@@ -43,18 +44,26 @@ public class DialogueUISystem : MonoBehaviour
         _dialogueTextGameObject.SetActive(true);
         _textBox.SetActive(true);
         //NextLineIndicator is show at the end of a line, not when the dialogue starts.
-        _nextLineIndicator.SetActive(false);
+        SetNextLineIndicator(false);
     }
 
     private void HideDialogueUI(FinishedDialogueEventInfo ei)
     {
         _dialogueTextGameObject.SetActive(false);
         _textBox.SetActive(false);
-        _nextLineIndicator.SetActive(false);
+        SetNextLineIndicator(false);
     }
 
     public void SetNextLineIndicator(bool givenValue) 
     {
-        _nextLineIndicator.SetActive(givenValue);
+        if (_nextLineIndicator is null)
+        {
+            Debug.LogWarning(string.Format("DialogueUISystem, _nextLineIndicator is null."));
+        }
+        else 
+        {
+            _nextLineIndicator.SetActive(givenValue);
+        }
+        
     }
 }

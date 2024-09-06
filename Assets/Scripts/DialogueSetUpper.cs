@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(DialogueFormatter))]
 public class DialogueSetUpper : MonoBehaviour
 {
-    [SerializeField] private DialoguePart[] _dialogueParts;
+    private DialoguePart[] _dialogueParts;
     private DialogueFormatter _dialogueFormatter;
     private int _currentLineNr;
 
     void Start()
     {
-        _dialogueFormatter = FindObjectOfType<DialogueFormatter>();
+        _dialogueFormatter = GetComponent<DialogueFormatter>();
     }
 
 
