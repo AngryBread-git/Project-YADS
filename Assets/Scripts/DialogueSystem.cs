@@ -14,6 +14,7 @@ public enum TypingSpeedSetting
 }
 
 [RequireComponent(typeof(DialogueSetUpper))]
+[RequireComponent(typeof(DialogueUISystem))]
 public class DialogueSystem : MonoBehaviour
 {
     //Other Classes
@@ -59,12 +60,7 @@ public class DialogueSystem : MonoBehaviour
             Debug.LogWarning(string.Format("DialogueSystem, did not find DialogueSound in scene."));
         }
 
-        _dialogueUISystem = FindObjectOfType<DialogueUISystem>();
-
-        if (_dialogueUISystem is null)
-        {
-            Debug.LogWarning(string.Format("DialogueSystem, did not find DialogueUISystem in scene."));
-        }
+        _dialogueUISystem = GetComponent<DialogueUISystem>();
 
         ApplyTypingSpeedSetting();
 
@@ -85,7 +81,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void OnDisable()
     {
-        EventCoordinator<StartedDialogueEventInfo>.RegisterListener(StartDialogue);
+        EventCoordinator<StartedDialogueEventInfo>.UnregisterListener(StartDialogue);
         EventCoordinator<SetTypingSpeedEventInfo>.UnregisterListener(SetTypingSpeedSetting);
 
         EventCoordinator<PauseTypingEventInfo>.UnregisterListener(PauseTyping);
@@ -439,13 +435,15 @@ public class DialogueSystem : MonoBehaviour
                     //Debug.Log(string.Format("Printing line, maxvisiblecharacters is: {0}", _textMeshPro.maxVisibleCharacters));
 
                     //if the character is a space, use a short delay. Also do not play a sound.
-                    if (lineSubsection[j].Equals(' '))
+                    if (char.IsWhiteSpace(lineSubsection[j]))
                     {
+                        //Debug.Log(string.Format("Printing line, char is space"));
                         yield return new WaitForSeconds(_currentTypingDelay * 0.5f);
                     }
                     //If it's punctuation then the typing has a slightly longer delay.
-                    if (lineSubsection[j].Equals('.') || lineSubsection[j].Equals(',') || lineSubsection[j].Equals('!') || lineSubsection[j].Equals('?'))
+                    if (char.IsPunctuation(lineSubsection[j]))
                     {
+                        //Debug.Log(string.Format("Printing line, char is punctuation"));
                         _dialogueSound.PlayDialogueSound();
                         yield return new WaitForSeconds(_currentTypingDelay * 1.2f);
                     }

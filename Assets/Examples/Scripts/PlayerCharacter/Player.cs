@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        EventCoordinator<StartedDialogueEventInfo>.RegisterListener(DisallowMovement);
+        EventCoordinator<StartedDialogueEventInfo>.UnregisterListener(DisallowMovement);
 
         EventCoordinator<FinishedDialogueEventInfo>.UnregisterListener(AllowMovement);
     }
