@@ -165,7 +165,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 263dc4fc9afb8f24d8bf61b16c919956, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.16
+  m_Volume: 0.14
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -916,9 +916,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 1915182405}
   _nameText: {fileID: 1463244159}
   _typingSpeedSetting: 0
-  _fastTypingDelay: 0.02
-  _normalTypingDelay: 0.035
-  _slowTypingDelay: 0.06
+  _fastPauseDuration: 0.2
+  _mediumPauseDuration: 0.4
+  _slowPauseDuration: 0.6
   _lineAmount: 0
   _currentLineNr: 0
 --- !u!4 &892294699
@@ -2502,8 +2502,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. '
+  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. qwerty uiop asdfh jkjl.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 180d04afad915584b8e87647a9cb88d5, type: 2}
   m_sharedMaterial: {fileID: 414597844421343118, guid: 180d04afad915584b8e87647a9cb88d5, type: 2}

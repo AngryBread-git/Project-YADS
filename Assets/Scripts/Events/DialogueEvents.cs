@@ -2,6 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TypingSpeedSetting
+{
+    //Note: The enums are defined in this order to make "normal" the default value in DialoguePart
+    normal,
+    fast,
+    slow,
+    instant,
+}
+
+
+public enum TypingPauseLength
+{
+    fast,
+    medium,
+    slow,
+}
 
 public class StartedDialogueEventInfo : EventInfo
 {
@@ -17,7 +33,6 @@ public class FinishedDialogueEventInfo : EventInfo
 public class SetTypingSpeedEventInfo : EventInfo
 {
     //written as "{SetTypingSpeed,X}" in a Line in a DialoguePart. With X being a valid TypingSpeedSetting.
-    //Note: See the DialogueSystem for the TypingSpeedSettings
 
     //Note: This is available as a setting in DialoguePart.
     public TypingSpeedSetting _typingSpeedSetting;
@@ -25,9 +40,9 @@ public class SetTypingSpeedEventInfo : EventInfo
 
 public class PauseTypingEventInfo : EventInfo
 {
-    //written as "{PauseTyping,X}" in a Line in a DialoguePart. With X being a float.
-    //Note: The pause duration is in milliseconds, so {PauseTyping,1500} pauses for 1.5 seconds.
-    public float _pauseDuration;
+    //written as "{PauseTyping,X}" in a Line in a DialoguePart. With X being a TypingPauseLength.
+    //The duration of each Length is given in DialogueSystem
+    public TypingPauseLength _typingPauseLength;
 }
 
 public class SetLineNumberEventInfo : EventInfo

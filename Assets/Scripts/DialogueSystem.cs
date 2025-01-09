@@ -4,14 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum TypingSpeedSetting
-{
-    //Note: The enums are defined in this order to make "normal" the default value in DialoguePart
-    normal,
-    fast,
-    slow,
-    instant,
-}
+
 
 [RequireComponent(typeof(DialogueSetUpper))]
 [RequireComponent(typeof(DialogueUISystem))]
@@ -27,14 +20,21 @@ public class DialogueSystem : MonoBehaviour
     private DialogueTrigger _currentDialogueTrigger;
     private DialogueUISystem _dialogueUISystem;
 
+    //TypingSpeed
     //Each TypingDelay corresponds to a TypingSpeed. 
     //A low value on a delay gives a high typing speed. A high value on a delay gives a low typing speed.
     [SerializeField] private TypingSpeedSetting _typingSpeedSetting;
     private float _instantTypingDelay = 0.001f;
-    [SerializeField] [Range(0.01f, 0.3f)] private float _fastTypingDelay = 0.02f;
-    [SerializeField] [Range(0.01f, 0.3f)] private float _normalTypingDelay = 0.035f;
-    [SerializeField] [Range(0.01f, 0.3f)] private float _slowTypingDelay = 0.05f;
+    [Range(0.01f, 0.3f)] private float _fastTypingDelay = 0.02f;
+    [Range(0.01f, 0.3f)] private float _normalTypingDelay = 0.035f;
+    [Range(0.01f, 0.3f)] private float _slowTypingDelay = 0.05f;
 
+
+    //TypingPause
+
+    public float _fastPauseDuration = 0.2f;
+    public float _mediumPauseDuration = 0.4f;
+    public float _slowPauseDuration = 0.6f;
 
 
     //Status values
@@ -380,16 +380,17 @@ public class DialogueSystem : MonoBehaviour
         }
         */
         
-
-        if (ei._pauseDuration > 0)
+        if (ei._typingPauseLength == TypingPauseLength.fast)
         {
-            //Debug.Log(string.Format("PauseTyping, ei_pauseDuration is: {0}", ei._pauseDuration));
-            _pauseDuration = ei._pauseDuration;
+            _pauseDuration = _fastPauseDuration;
         }
-        else 
+        else if (ei._typingPauseLength == TypingPauseLength.medium)
         {
-            //Debug.LogWarning(string.Format("PauseTyping, ei_pauseDuration was below 0: {0}. Duration will be set to 1.0", ei._pauseDuration));
-            _pauseDuration = 1.0f;
+            _pauseDuration = _mediumPauseDuration;
+        }
+        else if (ei._typingPauseLength == TypingPauseLength.slow)
+        {
+            _pauseDuration = _slowPauseDuration;
         }
 
         _isPaused = true;

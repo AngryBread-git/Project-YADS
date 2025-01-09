@@ -123,8 +123,7 @@ public class DialogueFormatter : MonoBehaviour
 
             case "PauseTyping":
                 PauseTypingEventInfo ptResult = new PauseTypingEventInfo();
-                float _pauseInMiliseconds = float.Parse(splitString[1]);
-                ptResult._pauseDuration = _pauseInMiliseconds / 1000;
+                ptResult._typingPauseLength = (TypingPauseLength) Enum.Parse(typeof(TypingPauseLength), splitString[1]);
                 return ptResult;
 
             case "SetLineNr":

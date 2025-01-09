@@ -20,7 +20,8 @@ MonoBehaviour:
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
-    _line: The dialogue can of course be paused {PauseTyping,1200}for dramatic effect.
+    _line: The dialogue can of course be paused {PauseTyping,slow}for dramatic effect.
+      Or a a fast pause {PauseTyping,fast}for less dramatic effect.
     _afterLineEvents: 
   - _characterInfo: {fileID: 11400000, guid: e0ae5ce2161e93449903755fbf105be6, type: 2}
     _typingSpeed: 1

@@ -7,6 +7,8 @@ public class DialogueSound : MonoBehaviour
 {
     private AudioSource _audioSource;
     private bool _allowSound = true;
+    private float _minDelay = 0.2f;
+    private float _maxDelay = 0.3f;
 
     private void Start()
     {
@@ -27,7 +29,7 @@ public class DialogueSound : MonoBehaviour
             _audioSource.Play();
             _allowSound = false;
 
-            float delay = Random.Range(0.1f, 0.2f);
+            float delay = Random.Range(_minDelay, _maxDelay);
             StartCoroutine(AllowSoundAfterDelay(delay));
         }
     }
