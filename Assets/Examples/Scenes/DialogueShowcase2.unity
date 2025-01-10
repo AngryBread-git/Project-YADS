@@ -946,9 +946,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 1915182405}
   _nameText: {fileID: 1463244159}
   _typingSpeedSetting: 0
-  _fastTypingDelay: 0.025
-  _normalTypingDelay: 0.035
-  _slowTypingDelay: 0.055
+  _fastPauseDuration: 0.2
+  _mediumPauseDuration: 0.4
+  _slowPauseDuration: 0.6
   _lineAmount: 0
   _currentLineNr: 0
 --- !u!4 &892294699
@@ -1016,6 +1016,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
@@ -1105,6 +1106,18 @@ MonoBehaviour:
   player: {fileID: 2054146853}
   offset: {x: 0, y: 2.5, z: -5}
   quaternion: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4f9dd764e2527419a49a08e931f82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1030604660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,7 +2259,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe81ee4a7c1acb54ea2f54563e3d35d1, type: 2}
+  - {fileID: 2100000, guid: 8adaa3a778d51d3408ed28cba4f9e4de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

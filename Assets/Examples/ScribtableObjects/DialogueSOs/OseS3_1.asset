@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5f8e0d09ec97e4cb3b5aeda38e5a91, type: 3}
+  m_Name: OseS3_1
+  m_EditorClassIdentifier: 
+  _dialogueParts:
+  - _characterInfo: {fileID: 11400000, guid: 69c73e99ee9cc4c4ba321b9d8bc284ce, type: 2}
+    _typingSpeed: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: Here's a {CameraShake,heavy} basic camera shake.
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: 69c73e99ee9cc4c4ba321b9d8bc284ce, type: 2}
+    _typingSpeed: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: 'If you use {CameraShake,medium}Cinemachine it has a more advanced shake
+      method. '
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: 69c73e99ee9cc4c4ba321b9d8bc284ce, type: 2}
+    _typingSpeed: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: So you can call it {CameraShake,light}via the CameraShake event.
+    _afterLineEvents: 

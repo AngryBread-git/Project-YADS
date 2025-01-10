@@ -145,6 +145,12 @@ public class DialogueFormatter : MonoBehaviour
                 psResult._soundEffectNumber = Convert.ToInt32(splitString[1]);
                 return psResult;
 
+            case "CameraShake":
+                CameraShakeEventInfo scResult = new CameraShakeEventInfo();
+                scResult._cameraShakeStrength = (CameraShakeStrength)Enum.Parse(typeof(CameraShakeStrength), splitString[1]);
+                //{ CameraShake,X}
+                return scResult;
+
             case "SetTextAnimationStyle":
                 SetTextAnimationStyleEventInfo stasResult = new SetTextAnimationStyleEventInfo();
                 stasResult._textAnimationStyle = (TextAnimationStyle)Enum.Parse(typeof(TextAnimationStyle), splitString[1]);

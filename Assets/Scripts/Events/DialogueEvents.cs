@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+#region Enums
 public enum TypingSpeedSetting
 {
     //Note: The enums are defined in this order to make "normal" the default value in DialoguePart
@@ -18,6 +18,16 @@ public enum TypingPauseLength
     medium,
     slow,
 }
+
+public enum CameraShakeStrength
+{
+    light,
+    medium,
+    heavy,
+}
+
+
+#endregion Enums
 
 public class StartedDialogueEventInfo : EventInfo
 {
@@ -76,26 +86,27 @@ public class PlaySoundEventInfo : EventInfo
     public int _soundEffectNumber;
 }
 
-public class PlayDialogueBlipEventInfo : EventInfo
+public class CameraShakeEventInfo : EventInfo 
 {
-    //This event is used in DialogueSystem to play "dialogue blips".
+    //written as "{CameraShake,X}" in a Line in a DialoguePart. With X being a CameraShakeStrength enum
+    public CameraShakeStrength _cameraShakeStrength;
 }
 
 public class SetTextAnimationStyleEventInfo : EventInfo
 {
-    //written as "{SetTextAnimationStyle,X}" in a Line in a DialoguePart. With X being a TextAnimationStyle
+    //written as "{SetTextAnimationStyle,X}" in a Line in a DialoguePart. With X being a TextAnimationStyle enum
     //Note: See the text animator for the TextAnimationStyles.
 
-    //Note: This is available as a setting in DialoguePart.
+    //Note: This is available as a setting in DialoguePart. And it is recommended that you set animation in a DialoguePart.
     public TextAnimationStyle _textAnimationStyle;
 }
 
 public class SetTextAnimationIntensityEventInfo : EventInfo
 {
-    //written as "{SetTextAnimationIntensity,X}" in a Line in a DialoguePart. With X being a TextAnimationIntensity
+    //written as "{SetTextAnimationIntensity,X}" in a Line in a DialoguePart. With X being a CameraShakeStrength enum
     //Note: See the text animator for the TextAnimationIntensitys and their values.
 
-    //Note: This is available as a setting in DialoguePart.
+    //Note: This is available as a setting in DialoguePart. And it is recommended that you set animation in a DialoguePart.
     public TextAnimationIntensity _textAnimationIntensity;
 }
 

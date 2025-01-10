@@ -503,6 +503,10 @@ public class DialogueSystem : MonoBehaviour
                 EventCoordinator<PlaySoundEventInfo>.FireEvent(ei);
                 break;
 
+            case CameraShakeEventInfo ei:
+                EventCoordinator<CameraShakeEventInfo>.FireEvent(ei);
+                break;
+
             case SetTextAnimationStyleEventInfo ei:
                 EventCoordinator<SetTextAnimationStyleEventInfo>.FireEvent(ei);
                 break;
