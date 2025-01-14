@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aeae35720b2cf4a469a8ae63143e033a, type: 3}
-  m_Name: VangoInfo
+  m_Name: SaeInfo
   m_EditorClassIdentifier: 
-  _characterName: Vango
-  _voiceClip: {fileID: 8300000, guid: 263dc4fc9afb8f24d8bf61b16c919956, type: 3}
+  _characterName: 'Sae '
+  _voiceClip: {fileID: 8300000, guid: 0948e6284426e3b468c9caba24a10149, type: 3}

@@ -2725,7 +2725,7 @@ GameObject:
   - component: {fileID: 2041350232}
   - component: {fileID: 2041350231}
   m_Layer: 0
-  m_Name: Vango
+  m_Name: Alan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

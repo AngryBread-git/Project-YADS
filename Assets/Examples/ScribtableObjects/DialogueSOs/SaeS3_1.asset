@@ -10,34 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce5f8e0d09ec97e4cb3b5aeda38e5a91, type: 3}
-  m_Name: OseS3_1
+  m_Name: SaeS3_1
   m_EditorClassIdentifier: 
   _dialogueParts:
-  - _characterInfo: {fileID: 11400000, guid: 69c73e99ee9cc4c4ba321b9d8bc284ce, type: 2}
+  - _characterInfo: {fileID: 11400000, guid: 3167ac8ec4005024f96a860fda45239e, type: 2}
     _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
-    _line: Here's a {CameraShake,heavy} basic camera shake.
+    _line: '*And then Sae slaps the table.*{CameraShake,medium}{PauseTyping,slow}
+      You''re very{PauseTyping,fast} easy to talk to, Waffles!'
     _afterLineEvents: 
-  - _characterInfo: {fileID: 11400000, guid: 69c73e99ee9cc4c4ba321b9d8bc284ce, type: 2}
+  - _characterInfo: {fileID: 11400000, guid: 3167ac8ec4005024f96a860fda45239e, type: 2}
     _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
-    _line: 'If you use {CameraShake,medium}Cinemachine, it has a more advanced shake
-      method. '
+    _line: You- you must've...{PauseTyping,slow} you must've been using <b>YADS</b>!{PauseTyping,fast}
+      T-to make a bunch of dialogue really easily.
     _afterLineEvents: 
-  - _characterInfo: {fileID: 11400000, guid: 69c73e99ee9cc4c4ba321b9d8bc284ce, type: 2}
+  - _characterInfo: {fileID: 11400000, guid: 3167ac8ec4005024f96a860fda45239e, type: 2}
     _typingSpeed: 0
     _animationStyle: 0
     _animationIntensity: 0
     _animateSpecifiedWords: 0
     _specifiedWordIndexes: 
     _beforeLineEvents: 
-    _line: So you can call it {CameraShake,light}via the CameraShake event.
+    _line: 'An-{PauseTyping,medium}and that''s why we can just chat for hours on
+      end. '
     _afterLineEvents: 
