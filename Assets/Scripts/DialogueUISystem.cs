@@ -27,7 +27,7 @@ public class DialogueUISystem : MonoBehaviour
 
     private void OnDisable()
     {
-        EventCoordinator<StartedDialogueEventInfo>.RegisterListener(ShowDialogueUI);
+        EventCoordinator<StartedDialogueEventInfo>.UnregisterListener(ShowDialogueUI);
 
         EventCoordinator<FinishedDialogueEventInfo>.UnregisterListener(HideDialogueUI);
     }

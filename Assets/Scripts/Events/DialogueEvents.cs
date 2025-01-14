@@ -1,7 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#region Enums
+public enum TypingSpeedSetting
+{
+    //Note: The enums are defined in this order to make "normal" the default value in DialoguePart
+    normal,
+    fast,
+    slow,
+    instant,
+}
 
+
+public enum TypingPauseLength
+{
+    fast,
+    medium,
+    slow,
+}
+
+public enum CameraShakeStrength
+{
+    light,
+    medium,
+    heavy,
+}
+
+
+#endregion Enums
 
 public class StartedDialogueEventInfo : EventInfo
 {
@@ -17,7 +43,6 @@ public class FinishedDialogueEventInfo : EventInfo
 public class SetTypingSpeedEventInfo : EventInfo
 {
     //written as "{SetTypingSpeed,X}" in a Line in a DialoguePart. With X being a valid TypingSpeedSetting.
-    //Note: See the DialogueSystem for the TypingSpeedSettings
 
     //Note: This is available as a setting in DialoguePart.
     public TypingSpeedSetting _typingSpeedSetting;
@@ -25,9 +50,9 @@ public class SetTypingSpeedEventInfo : EventInfo
 
 public class PauseTypingEventInfo : EventInfo
 {
-    //written as "{PauseTyping,X}" in a Line in a DialoguePart. With X being a float.
-    //Note: The pause duration is in milliseconds, so {PauseTyping,1500} pauses for 1.5 seconds.
-    public float _pauseDuration;
+    //written as "{PauseTyping,X}" in a Line in a DialoguePart. With X being a TypingPauseLength.
+    //The duration of each Length is given in DialogueSystem
+    public TypingPauseLength _typingPauseLength;
 }
 
 public class SetLineNumberEventInfo : EventInfo
@@ -61,26 +86,27 @@ public class PlaySoundEventInfo : EventInfo
     public int _soundEffectNumber;
 }
 
-public class PlayDialogueBlipEventInfo : EventInfo
+public class CameraShakeEventInfo : EventInfo 
 {
-    //This event is used in DialogueSystem to play "dialogue blips".
+    //written as "{CameraShake,X}" in a Line in a DialoguePart. With X being a CameraShakeStrength enum
+    public CameraShakeStrength _cameraShakeStrength;
 }
 
 public class SetTextAnimationStyleEventInfo : EventInfo
 {
-    //written as "{SetTextAnimationStyle,X}" in a Line in a DialoguePart. With X being a TextAnimationStyle
+    //written as "{SetTextAnimationStyle,X}" in a Line in a DialoguePart. With X being a TextAnimationStyle enum
     //Note: See the text animator for the TextAnimationStyles.
 
-    //Note: This is available as a setting in DialoguePart.
+    //Note: This is available as a setting in DialoguePart. And it is recommended that you set animation in a DialoguePart.
     public TextAnimationStyle _textAnimationStyle;
 }
 
 public class SetTextAnimationIntensityEventInfo : EventInfo
 {
-    //written as "{SetTextAnimationIntensity,X}" in a Line in a DialoguePart. With X being a TextAnimationIntensity
+    //written as "{SetTextAnimationIntensity,X}" in a Line in a DialoguePart. With X being a CameraShakeStrength enum
     //Note: See the text animator for the TextAnimationIntensitys and their values.
 
-    //Note: This is available as a setting in DialoguePart.
+    //Note: This is available as a setting in DialoguePart. And it is recommended that you set animation in a DialoguePart.
     public TextAnimationIntensity _textAnimationIntensity;
 }
 

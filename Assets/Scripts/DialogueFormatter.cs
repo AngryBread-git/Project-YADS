@@ -123,8 +123,7 @@ public class DialogueFormatter : MonoBehaviour
 
             case "PauseTyping":
                 PauseTypingEventInfo ptResult = new PauseTypingEventInfo();
-                float _pauseInMiliseconds = float.Parse(splitString[1]);
-                ptResult._pauseDuration = _pauseInMiliseconds / 1000;
+                ptResult._typingPauseLength = (TypingPauseLength) Enum.Parse(typeof(TypingPauseLength), splitString[1]);
                 return ptResult;
 
             case "SetLineNr":
@@ -145,6 +144,12 @@ public class DialogueFormatter : MonoBehaviour
                 PlaySoundEventInfo psResult = new PlaySoundEventInfo();
                 psResult._soundEffectNumber = Convert.ToInt32(splitString[1]);
                 return psResult;
+
+            case "CameraShake":
+                CameraShakeEventInfo scResult = new CameraShakeEventInfo();
+                scResult._cameraShakeStrength = (CameraShakeStrength)Enum.Parse(typeof(CameraShakeStrength), splitString[1]);
+                //{ CameraShake,X}
+                return scResult;
 
             case "SetTextAnimationStyle":
                 SetTextAnimationStyleEventInfo stasResult = new SetTextAnimationStyleEventInfo();

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5f8e0d09ec97e4cb3b5aeda38e5a91, type: 3}
+  m_Name: SaeS3_1
+  m_EditorClassIdentifier: 
+  _dialogueParts:
+  - _characterInfo: {fileID: 11400000, guid: 3167ac8ec4005024f96a860fda45239e, type: 2}
+    _typingSpeed: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: '*And then Sae slaps the table.*{CameraShake,medium}{PauseTyping,slow}
+      You''re very{PauseTyping,fast} easy to talk to, Waffles!'
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: 3167ac8ec4005024f96a860fda45239e, type: 2}
+    _typingSpeed: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: You- you must've...{PauseTyping,slow} you must've been using <b>YADS</b>!{PauseTyping,fast}
+      T-to make a bunch of dialogue really easily.
+    _afterLineEvents: 
+  - _characterInfo: {fileID: 11400000, guid: 3167ac8ec4005024f96a860fda45239e, type: 2}
+    _typingSpeed: 0
+    _animationStyle: 0
+    _animationIntensity: 0
+    _animateSpecifiedWords: 0
+    _specifiedWordIndexes: 
+    _beforeLineEvents: 
+    _line: 'An-{PauseTyping,medium}and that''s why we can just chat for hours on
+      end. '
+    _afterLineEvents: 

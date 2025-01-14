@@ -42,12 +42,25 @@ public class DialogueTrigger : MonoBehaviour
     }
 
 
+
     private void OnDialogueFinished(FinishedDialogueEventInfo ei) 
     {
         if (this.Equals(ei._dialogueTrigger)) 
         {
-            IncreaseDialogueNr();
+            if (CheckIfDialogueNrShouldUpdate()) 
+            {
+                IncreaseDialogueNr();
+            }
+            
         }
+    }
+
+
+    private bool CheckIfDialogueNrShouldUpdate()
+    {
+        //Pseudo: Check for flags or similar to see if the dialoguenr should be updated.
+        //Which would reasonably be it's own script.
+        return true;
     }
 
     private void IncreaseDialogueNr() 
